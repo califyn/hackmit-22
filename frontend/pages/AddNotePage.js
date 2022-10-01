@@ -7,7 +7,7 @@ import { SafeAreaView, TextInput, Button } from "react-native";
 import React from "react";
 
 
-export default function SplashPage() {
+export default function AddNotePage() {
     const [msg, updateMsg] = React.useState(null);
     const [text, onChangeNumber] = React.useState(null);
     return (

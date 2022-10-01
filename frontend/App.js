@@ -26,6 +26,7 @@ function App() {
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
         <Stack.Screen name="FocusPage" component={FocusPage} />
+        <Stack.Screen name="AddNotePage" component={AddNotePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
