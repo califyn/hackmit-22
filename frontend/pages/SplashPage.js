@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TouchableHighlight, Text, View, Image } from 'react-native';
+import { StyleSheet, TouchableHighlight, TouchableOpacity, Text, View, Image } from 'react-native';
 import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
 import styles from './style'
 import COLORS from './style'
@@ -7,9 +7,7 @@ import COLORS from './style'
 export default function SplashPage() {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.splashlogo}/>
-      <View style={styles.space} />
-      <Text>App Name</Text>
+      <Image source={require('../assets/logo.png')} style={styles.splashlogobig}/>
       <View style={styles.space} />
 
       <TouchableHighlight>
