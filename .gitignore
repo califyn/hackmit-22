@@ -9,6 +9,7 @@ frontend/*.key
 frontend/*.mobileprovision
 frontend/*.orig.*
 frontend/web-build/
+backend/venv
 
 # macOS
 frontend/.DS_Store
