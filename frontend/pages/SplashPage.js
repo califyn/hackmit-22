@@ -6,7 +6,8 @@ export default function SplashPage() {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo.png')} style={styles.splashlogo}/>
-      <Text>This is the splash page</Text>
+      <Text>Login</Text>
+      <Text>Sign Up</Text>
       <StatusBar style="auto" />
     </View>
   );
