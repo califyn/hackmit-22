@@ -28,6 +28,10 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: '100%',
   },
+  mapMarker: {
+    width: 50,
+    height: 50,
+  },
   feed: {
     position: 'absolute',
     zIndex: '10',
