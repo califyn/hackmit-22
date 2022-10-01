@@ -20,9 +20,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  splashlogo: {
+  splashlogobig: {
     height: '30%',
     width: '67.5%',
+  },
+  splashlogosmall: {
+    height: '10%',
+    width: '22.5%',
   },
   map: {
     width: Dimensions.get('window').width,
@@ -83,7 +87,31 @@ const styles = StyleSheet.create({
   space: {
     width: 20,
     height: 20,
-  }
+  },
+  inputView: {
+    backgroundColor: COLORS.white,
+    // borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
+    alignItems: "center",
+  },
+  TextInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+  },
+  loginBtn:
+ {
+   width:"60%",
+   borderRadius:25,
+   height:50,
+   alignItems:"center",
+   justifyContent:"center",
+   marginTop:40,
+   backgroundColor: COLORS.green,
+ }
 });
 
 export default styles;
