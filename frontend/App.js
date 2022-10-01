@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashPage from './pages/SplashPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import FocusPage from './pages/FocusPage';
 import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
@@ -14,10 +15,11 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignupPage">
+      <Stack.Navigator initialRouteName="FocusPage">
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
+        <Stack.Screen name="FocusPage" component={FocusPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
