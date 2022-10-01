@@ -23,10 +23,12 @@ const styles = StyleSheet.create({
   splashlogobig: {
     height: '30%',
     width: '67.5%',
+    resizeMode: 'contain',
   },
   splashlogosmall: {
     height: '10%',
     width: '22.5%',
+    resizeMode: 'contain',
   },
   map: {
     width: Dimensions.get('window').width,
