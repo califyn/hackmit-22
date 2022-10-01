@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from '../pages/style'
 
 import MapView, { Marker } from 'react-native-maps';
+import { Image } from 'react-native';
 import * as Location from 'expo-location'
 
 export default function CenterMap() {
@@ -48,7 +49,9 @@ export default function CenterMap() {
                     title={obj.title}
                     description={obj.subtitle}
                     key={obj.title}
-                 />
+                 >
+                    <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>
+                 </MapView.Marker>
             );
           })}
       </MapView>
