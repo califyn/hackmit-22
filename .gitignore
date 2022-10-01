@@ -13,3 +13,6 @@ frontend/web-build/
 # macOS
 frontend/.DS_Store
 .DS_Store
+
+# Vim
+*.swp
