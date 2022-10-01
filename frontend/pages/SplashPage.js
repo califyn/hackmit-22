@@ -10,16 +10,13 @@ export default function SplashPage() {
       <Image source={require('../assets/logo.png')} style={styles.splashlogobig}/>
       <View style={styles.space} />
 
-      <TouchableHighlight>
-        <View style={styles.button}>
-          <Text>Login</Text>
-        </View>
-      </TouchableHighlight>
-      <TouchableHighlight>
-        <View style={styles.button}>
-          <Text>Sign Up</Text>
-        </View>
-      </TouchableHighlight>
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>Login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>Sign Up</Text>
+      </TouchableOpacity>
 
       <View style={styles.space} />
       <StatusBar style="auto" />

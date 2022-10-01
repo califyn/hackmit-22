@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashPage from './pages/SplashPage';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
@@ -13,9 +14,10 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginPage">
+      <Stack.Navigator initialRouteName="SignupPage">
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
+        <Stack.Screen name="SignupPage" component={SignupPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
