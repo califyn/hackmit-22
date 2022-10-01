@@ -24,7 +24,7 @@ export default function CenterMap() {
             setLocation(location);
 
             mapRef.current.animateToRegion({
-                "latitude":location.coords.latitude,
+                "latitude":location.coords.latitude - 0.0125,
                 "longitude": location.coords.longitude,
                 "latitudeDelta":0.05,
                 "longitudeDelta":0.05
