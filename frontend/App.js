@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FeedPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="SplashPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
       </Stack.Navigator>
