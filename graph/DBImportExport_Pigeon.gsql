@@ -1,0 +1,50 @@
+CREATE GRAPH Pigeon()
+CREATE SCHEMA_CHANGE JOB schema_change_job_AddExportedLocalVETypes_JT8B8XV85X78MVIO FOR GRAPH Pigeon { 
+  ADD VERTEX User(PRIMARY_ID username STRING, password STRING) WITH STATS="OUTDEGREE_BY_EDGETYPE", PRIMARY_ID_AS_ATTRIBUTE="true";
+  ADD VERTEX Location(PRIMARY_ID id STRING, lat DOUBLE, lon DOUBLE) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+  ADD VERTEX Package(PRIMARY_ID id STRING, text STRING, time DATETIME, lat DOUBLE, lon DOUBLE) WITH STATS="OUTDEGREE_BY_EDGETYPE", PRIMARY_ID_AS_ATTRIBUTE="true";
+  ADD UNDIRECTED EDGE FRIENDS(FROM User, TO User);
+  ADD UNDIRECTED EDGE PACKAGE_FROM(FROM User, TO Package);
+  ADD UNDIRECTED EDGE PACKAGE_TO(FROM User, TO Package);
+  ADD UNDIRECTED EDGE PACKAGE_LOCATION(FROM Package, TO Location);
+}
+RUN SCHEMA_CHANGE JOB schema_change_job_AddExportedLocalVETypes_JT8B8XV85X78MVIO
+DROP JOB schema_change_job_AddExportedLocalVETypes_JT8B8XV85X78MVIO
+set exit_on_error = "false"
+CREATE QUERY userLogin(STRING username, STRING pwd) FOR GRAPH Pigeon { 
+  SumAccum<INT> @@users_found = 0;
+  
+  user = SELECT s FROM User:s
+         WHERE s.username == username AND s.password == pwd
+         ACCUM @@users_found+=1;
+  
+  IF (@@users_found == 0) THEN
+    PRINT "NOT FOUND";
+  ELSE
+    PRINT user;
+  END;
+}
+CREATE QUERY userExists(STRING username) FOR GRAPH Pigeon { 
+  SumAccum<INT> @@users_found = 0;
+  
+  user = SELECT s FROM User:s
+         WHERE s.username == username
+         ACCUM @@users_found+=1;
+  
+  IF (@@users_found == 0) THEN
+    PRINT "NOT FOUND";
+  ELSE
+    PRINT user;
+  END;
+}
+CREATE QUERY userLocations(STRING username) FOR GRAPH Pigeon { 
+    TYPEDEF TUPLE <STRING id, STRING text, DATETIME time, DOUBLE lat, DOUBLE lon> Package_Information;
+    HeapAccum<Package_Information> (100, time DESC) @@pkgs;
+    
+    user = SELECT s FROM User:s - (PACKAGE_TO:e1) - Package:p
+         WHERE s.username == username
+         ACCUM @@pkgs+=Package_Information(p.id, p.text, p.time, p.lat, p.lon);
+  
+    PRINT @@pkgs AS Packages;
+}
+set exit_on_error = "true"

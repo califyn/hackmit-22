@@ -9,6 +9,9 @@ frontend/*.key
 frontend/*.mobileprovision
 frontend/*.orig.*
 frontend/web-build/
+backend/venv
+backend/__pycache__
+backend/auth.py
 
 # macOS
 frontend/.DS_Store
