@@ -26,6 +26,22 @@ export default function FeedPage() {
     }
   }
 
+  const feed_test = [
+       {
+            "id": "102945912",
+            "to": "califyn",
+            "from": "hackmit",
+            "content": "Hello World! asdoigasdghioogiad dgdi aosdgadsgo sdgoasdgioasoidgds asdfiojsfd osfsodfdfsdoaod giod dfo diofaoofsdkof dkfa ofaod faodfioao foads oa:o"
+        },
+       {
+            "id": "1029459124981",
+            "to": "califyn",
+            "from": "hackmit",
+            "content": "Hello World! asdoigasdghioogiad dgdi aosdgadsgo sdgoasdgioasoidgds asdfiojsfd osfsodfdfsdoaod giod dfo diofaoofsdkof dkfa ofaod faodfioao foads oa:o"
+        }
+    ]
+
+
   APressable = Animated.createAnimatedComponent(Pressable);
 
   return (
@@ -35,26 +51,17 @@ export default function FeedPage() {
           <APressable onPressOut={() => {if(!feedUp){setFeedAndAnimate(!feedUp);}}} pressRetentionOffset={{top: 500}} disabled={feedUp} style={[styles.feed, {flex: feedUp ? 1 : null, height: realHeight}]}>
                   <Text style={styles.h1}>Feed</Text>
                   <ScrollView onScrollEndDrag={(event) => {if(event.nativeEvent.contentOffset.y <= -100) {setFeedAndAnimate(false)}}} style={feedUp ? styles.feedScrollFull : null} showsVerticalScrollIndicator={false}>
-                      <Text style={styles.h1}>Feed1</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed2</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed3</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed4</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed5</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed6</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed6</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed7</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed8</Text>
-                      <Text style={styles.h1}>Feed</Text>
-                      <Text style={styles.h1}>Feed9</Text>
-                      <Text style={styles.h1}>Feed</Text>
+                    {feed_test.map((pkg) => {
+                        return (
+                            <View style={styles.pkgPreview}>
+                                    <Image source={require('../assets/gift_pin.png')} style={styles.feedSumPin} />
+                                    <View style={styles.pkgContentPrev}>
+                                        <Text style={styles.h3}>@{pkg.from}</Text>
+                                        <Text style={styles.text}>{pkg.content}</Text>
+                                    </View>
+                            </View>
+                        );
+                    })}
                   </ScrollView>
           </APressable>
     </View>
