@@ -11,7 +11,11 @@ export default function SignupPage({navigation}) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.loginupcontainer}>
+        <View style={styles.center}>
       <Image source={require('../assets/logo.png')} style={styles.splashlogosmall}/>
+      <View style={styles.space} />
+      <View style={styles.space} />
       <View style={styles.space} />
       <View style={styles.inputView}>
       <TextInput
@@ -63,12 +67,14 @@ export default function SignupPage({navigation}) {
         <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => { navigation.goBack(); }}>
+      <TouchableOpacity style={styles.signupBtn} onPress={() => { navigation.goBack(); }}>
         <Text style={styles.loginText}>Back</Text>
       </TouchableOpacity>
 
       <View style={styles.space} />
       <StatusBar style="auto" />
+      </View>
+      </View>
       </View>
   );
 }
