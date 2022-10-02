@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   splashlogobig: {
     height: '30%',
     width: '67.5%',
+    resizeMode: 'contain',
   },
   splashlogosmall: {
     resizeMode: 'contain',
@@ -34,19 +35,24 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: '100%',
   },
+  mapMarker: {
+    width: 50,
+    height: 50,
+  },
   feed: {
     position: 'absolute',
     zIndex: '10',
     bottom: '0%',
     width: '100%',
-    backgroundColor: 'white',
-    borderColor: 'white',
+    backgroundColor: COLORS.lightpurple,
+    borderColor: COLORS.lightpurple,
     borderWidth: '20px',
     borderRadius: '20px',
     paddingTop: '4%',
   },
   h1: {
     fontSize: '60pt',
+    paddingLeft: 5,
     fontWeight: '500',
   },
   h3: {
@@ -62,10 +68,11 @@ const styles = StyleSheet.create({
   pkgPreview: {
     marginTop: '5%',
     width: '100%',
-    backgroundColor: 'blue',
-    borderRadius: '10%',
+    backgroundColor: COLORS.white,
+    borderBottomRightRadius: '10%',
+    borderTopLeftRadius: '5%',
     borderWidth: '10%',
-    borderColor: 'blue',
+    borderColor: COLORS.white,
     height: 100,
     flexDirection: 'row',
     justifyContent: 'flex-end',

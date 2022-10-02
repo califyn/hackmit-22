@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import SplashPage from './pages/SplashPage';
+import AddNotePage from './pages/AddNotePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import FocusPage from './pages/FocusPage';
@@ -24,6 +25,7 @@ function App() {
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
         <Stack.Screen name="FocusPage" component={FocusPage} />
+        <Stack.Screen name="AddNotePage" component={AddNotePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
