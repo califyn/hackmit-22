@@ -9,7 +9,6 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
 import SplashPage from './pages/SplashPage';
-import ChooseRecipientPage from './pages/ChooseRecipientPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import FocusPage from './pages/FocusPage';
@@ -18,6 +17,7 @@ import FeedPage from './pages/FeedPage';
 import SendingPage from './pages/SendingPage';
 import ContentPage from './pages/ContentPage';
 import InitialPage from './pages/InitialPage';
+import RecipientPage from './pages/RecipientPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -59,10 +59,10 @@ function App() {
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
         <Stack.Screen name="FocusPage" component={FocusPage} />
-        <Stack.Screen name="ChooseRecipientPage" component={ChooseRecipientPage} />
         <Stack.Screen name="SendingPage" component={SendingPage} />
         <Stack.Screen name="ContentPage" component={ContentPage} />
         <Stack.Screen name="InitialPage" component={InitialPage} />
+        <Stack.Screen name="RecipientPage" component={RecipientPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,6 +4,7 @@ const COLORS = {
   text: 'black',
   white: '#FDFDFD',
   lightpurple: '#EBE4E9',
+  darkpurple: '#8A5079',
   purple: '#DED2DB',
   green: '#B4C5A7',
   darkgreen: '#93A399',
@@ -64,6 +65,10 @@ const styles = StyleSheet.create({
     fontSize: '60pt',
     paddingLeft: 5,
     fontWeight: '500',
+    fontFamily: 'VarelaRound',
+  },
+  h2: {
+    fontSize: '40pt',
     fontFamily: 'VarelaRound',
   },
   h3: {
@@ -255,6 +260,31 @@ const styles = StyleSheet.create({
     height: 40,
     resizeMode: 'cover',
   },
+  centerTextWrap: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    width: Dimensions.get('window').width,
+    paddingLeft: 30,
+    backgroundColor: COLORS.white,
+    borderBottomWidth: 1,
+    borderColor: COLORS.lightpurple,
+  },
+  atOneLine: {
+    flexDirection: 'row',
+  },
+  atTextInput: {
+    height: '100%',
+    width: '70%',
+    fontSize: '30pt',
+    marginLeft: 10,
+    marginTop: 5,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    borderColor: COLORS.lightpurple,
+    fontFamily: 'VarelaRound',
+    color: COLORS.darkpurple,
+  }
 });
 
 export default styles;
