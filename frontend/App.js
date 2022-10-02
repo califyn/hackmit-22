@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as Location from 'expo-location';
 import styles from './pages/style';
+
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 import SplashPage from './pages/SplashPage';
 import ChooseRecipientPage from './pages/ChooseRecipientPage';
@@ -38,9 +40,19 @@ const Stack = createNativeStackNavigator();
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fontsLoaded] = useFonts({
+    'VarelaRound': require('./assets/fonts/VarelaRound.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <AppLoading />
+    );
+  }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ContentPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="SplashPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
