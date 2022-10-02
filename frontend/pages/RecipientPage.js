@@ -32,7 +32,7 @@ export default function RecipientPage({ navigation, route }) {
             <Text style={[styles.text, {color: "red", marginTop: 20}]}>{msg}</Text>
           </View>
           <View style={styles.bottomField}>
-                <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
+                <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>{`${route.params.lat}, ${route.params.lon}`}</Text></Text>
           </View>
             <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {
               console.log("api needs to validate recipient her..."); // Needs to grab the lat/lon and do thing with it
