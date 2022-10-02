@@ -145,6 +145,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     padding: 20,
   },
+  downcontainer: {
+    flex: 1,
+    backgroundColor: COLORS.gray,
+    alignItems: 'center',
+    width: "100%",
+    bottom: 0,
+    height: "10%"
+  },
   upmidcontainer: {
     flex: 1,
     backgroundColor: COLORS.lightpurple,
@@ -166,6 +174,10 @@ const styles = StyleSheet.create({
   width: "100%",
   alignItems: 'center',
  },
+ rightcontainer: {
+  alignItems: "right",
+  // width: "80%",
+},
  largetext:
  {
   fontSize: 20,
