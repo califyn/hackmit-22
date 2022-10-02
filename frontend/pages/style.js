@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  mapMarkerBig: {
+    width: 160,
+    height: 160,
+  },
   feed: {
     position: 'absolute',
     zIndex: '10',
@@ -158,6 +162,21 @@ const styles = StyleSheet.create({
  {
   fontSize: 20,
  }
+ backButtonWrap: {
+  position: 'absolute',
+  left: '6%',
+  top: '5%',
+  zIndex: '100',
+ },
+ backButton: {
+  backgroundColor: COLORS.black,
+  padding: 20,
+  borderRadius: '50%',
+ },
+ backButtonText: {
+  fontSize: '40pt',
+  color: COLORS.lightpurple,
+ },
 });
 
 export default styles;

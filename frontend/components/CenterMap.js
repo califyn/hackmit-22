@@ -5,7 +5,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { Image } from 'react-native';
 import * as Location from 'expo-location'
 
-export default function CenterMap() {
+export default function CenterMap(props) {
   let mapRef = useRef(null);
   const [location, setLocation] = useState("");
   const [markers, setMarkers] = useState([]);
@@ -30,12 +30,13 @@ export default function CenterMap() {
                 "latitudeDelta":0.05,
                 "longitudeDelta":0.05
             });
-            setMarkers(markers.concat([{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-                title: 'Current Location',
-                subtitle: 'Insert Subtitle'
-            }]));
+            if (markers.length == 0) {
+                setMarkers(markers.concat([{
+                    latitude: location.coords.latitude,
+                    longitude: location.coords.longitude,
+                    title: 'Current Location',
+                }]));
+            }
         })();
     }, []);
 
@@ -50,7 +51,7 @@ export default function CenterMap() {
                     description={obj.subtitle}
                     key={obj.title}
                  >
-                    <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>
+                    {props.markerSize == "big" ? <Image source={require('../assets/gift_pin_big.png')} style={styles.mapMarkerBig}/> : <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>}
                  </MapView.Marker>
             );
           })}
