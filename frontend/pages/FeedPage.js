@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Text, View, Image, Pressable, ScrollView, Animated, TouchableOpacity } from 'react-native';
 import styles from './style'
 
+import { LinearGradient } from 'expo-linear-gradient';
+
 import CenterMap from '../components/CenterMap'
 
 export default function FeedPage({navigation, route}) {
@@ -47,14 +49,15 @@ export default function FeedPage({navigation, route}) {
                   <Text style={styles.h1}>Feed</Text>
                   <ScrollView onScrollEndDrag={(event) => {if(event.nativeEvent.contentOffset.y <= -100) {setFeedAndAnimate(false)}}} style={feedUp ? styles.feedScrollFull : null} showsVerticalScrollIndicator={false}>
                     {feed_test.map((pkg) => {
-                        return (
-                            <View style={styles.pkgPreview}>
-                                    <Image source={require('../assets/gift_pin.png')} style={styles.feedSumPin} />
+                        return ( 
+                            <TouchableOpacity style={styles.pkgPreview} onPress={() => {navigation.navigate('FocusPage', {pkg: pkg})}}>
                                     <View style={styles.pkgContentPrev}>
                                         <Text style={styles.h3}>@{pkg.from_user}</Text>
                                         <Text style={styles.text}>{pkg.text}</Text>
                                     </View>
-                            </View>
+                                    <LinearGradient colors={['rgba(255,255,255,0)', '#ffffff']} style={styles.feedGrad} locations={[0.5, 0.9]}>
+                                    </LinearGradient>
+                            </TouchableOpacity>
                         );
                     })}
                   </ScrollView>
