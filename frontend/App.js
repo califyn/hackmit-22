@@ -14,6 +14,7 @@ import FocusPage from './pages/FocusPage';
 import { useState } from 'react';
 import FeedPage from './pages/FeedPage';
 import SendingPage from './pages/SendingPage';
+import ContentPage from './pages/ContentPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -39,7 +40,7 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SendingPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="ContentPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
@@ -47,6 +48,7 @@ function App() {
         <Stack.Screen name="FocusPage" component={FocusPage} />
         <Stack.Screen name="ChooseRecipientPage" component={ChooseRecipientPage} />
         <Stack.Screen name="SendingPage" component={SendingPage} />
+        <Stack.Screen name="ContentPage" component={ContentPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
