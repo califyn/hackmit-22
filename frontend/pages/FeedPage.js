@@ -6,7 +6,7 @@ import styles from './style'
 
 import CenterMap from '../components/CenterMap'
 
-export default function FeedPage({route}) {
+export default function FeedPage({navigation, route}) {
   const [feedUp, setFeedUp] = useState(false);
   const heightA = useRef(new Animated.Value(15)).current;
   const realHeight = heightA.interpolate({inputRange:[0,100],outputRange:['0%','100%']});
@@ -36,7 +36,9 @@ export default function FeedPage({route}) {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.createButtonWrap}>
-          <TouchableOpacity onPress={() => {console.log("go to create package")}} style={styles.createButton}>
+          <TouchableOpacity onPress={() => {navigation.navigate('InitialPage', {
+                  username: route.params.username
+                })}} style={styles.createButton}>
            <Image source={require('../assets/plus.png')} style={{width: 30, height: 30, padding: 20}} />
           </TouchableOpacity>
       </View>

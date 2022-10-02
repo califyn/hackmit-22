@@ -18,7 +18,10 @@ export default function InitialPage({ navigation }) {
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
-            <TouchableOpacity onPress={() => {console.log("confirmed!");}} style={[styles.bottomField, styles.bottomFieldPurple]}>
+            <TouchableOpacity onPress={() => {navigation.navigate("RecipientPage"), {
+                  username: username,
+                  locations: json1.Packages
+                }}} style={[styles.bottomField, styles.bottomFieldPurple]}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
       </View>
