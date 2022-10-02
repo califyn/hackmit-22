@@ -25,8 +25,10 @@ const styles = StyleSheet.create({
     width: '67.5%',
   },
   splashlogosmall: {
-    height: '10%',
-    width: '22.5%',
+    resizeMode: 'contain',
+    height: 100,
+    width: 125,
+    margin: 'auto',
   },
   map: {
     width: Dimensions.get('window').width,
@@ -102,16 +104,40 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 20,
   },
-  loginBtn:
+  loginBtn: {
+    width:"60%",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:40,
+    backgroundColor: COLORS.green,
+  },
+  leftcontainer: {
+    alignItems: "left",
+    width: "80%",
+  },
+  upcontainer: {
+    flex: 1,
+    backgroundColor: COLORS.lightpurple,
+    alignItems: 'left',
+    width: "100%",
+    top: 50,
+    position: "absolute",
+    padding: 20,
+  },
+ tofrombox:
  {
-   width:"60%",
-   borderRadius:25,
-   height:50,
-   alignItems:"center",
-   justifyContent:"center",
-   marginTop:40,
-   backgroundColor: COLORS.green,
- }
+  width: "100%",
+  backgroundColor: COLORS.white,
+  height: 40,
+  padding: 10,
+ },
+ center:
+ {
+  width: "100%",
+  alignItems: 'center',
+ },
 });
 
 export default styles;

@@ -4,12 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import SplashPage from './pages/SplashPage';
-
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import FocusPage from './pages/FocusPage';
 import { useState } from 'react';
-
 import FeedPage from './pages/FeedPage';
 
 
@@ -20,7 +18,7 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="FocusPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
