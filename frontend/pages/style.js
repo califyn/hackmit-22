@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
+    width: '100%'
   },
   loginBtn: {
     width:"60%",
