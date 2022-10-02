@@ -44,8 +44,8 @@ async def userexists(usr: Username):
     else: 
         return res[0]
 
-@app.get("/packages")
-async def getpackages(usr: Username): 
+@app.post("/packages")
+async def getpackages(usr: User): 
     try:
         res = conn.runInstalledQuery("userLocations", {"username": usr.name})
         return res[0]
