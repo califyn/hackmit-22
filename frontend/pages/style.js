@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: '20pt',
     fontWeight: '500',
     fontFamily: 'VarelaRound',
+    color: COLORS.darkpurple,
   },
   fadeText: {
     color: COLORS.gray,
@@ -90,10 +91,6 @@ const styles = StyleSheet.create({
     marginTop: '5%',
     width: '100%',
     backgroundColor: COLORS.white,
-    borderBottomRightRadius: '10%',
-    borderTopLeftRadius: '5%',
-    borderWidth: '10%',
-    borderColor: COLORS.white,
     height: 100,
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -106,6 +103,9 @@ const styles = StyleSheet.create({
   },
   pkgContentPrev: {
     flex: 1,
+    padding: 20,
+    flexDirection: 'col',
+    justifyContent: 'flex-start',
   },
   button: {
     marginBottom: 20,
@@ -161,12 +161,9 @@ const styles = StyleSheet.create({
   },
   upcontainer: {
     flex: 1,
-    backgroundColor: COLORS.lightpurple,
-    alignItems: 'left',
+    backgroundColor: COLORS.white,
     width: "100%",
-    top: 50,
-    position: "absolute",
-    padding: 20,
+    height: '100%',
   },
   loginupcontainer: {
     alignItems: 'left',
@@ -201,8 +198,10 @@ const styles = StyleSheet.create({
   },
   center:
   {
+   paddingTop: 50,
    width: "100%",
    alignItems: 'center',
+   backgroundColor: COLORS.lightpurple,
   },
   largetext:
   {
@@ -320,7 +319,42 @@ const styles = StyleSheet.create({
     padding: 30,
     fontSize: '18pt',
     fontFamily: 'VarelaRound',
-  }
+  },
+  feedGrad: {
+    position: 'absolute',
+    width: '100%',
+    height: 100,
+    zIndex: 20,
+  },
+  feedOpac: {
+    width: "100%",
+    zIndex: 30,
+    backgroundColor: 'red',
+  },
+  focusWrap: {
+    width: '100%',
+    backgroundColor: COLORS.white,
+    padding: 30,
+    marginTop: 20,
+    alignItems: 'left',
+  },
+  fromFieldFocus: {
+    marginTop: 5,
+    marginBottom: 20,
+    fontFamily: 'VarelaRound',
+  },
+  geoIndicator: {
+    flexDirection: 'row',
+    paddingBottom: 8,
+  },
+  geoIndicatorPin: {
+    height: 20,
+    width: 20,
+    resizeMode: 'contain',
+  },
+  geoIndicatorText: {
+    flex: 1,
+  },
 });
 
 export default styles;
