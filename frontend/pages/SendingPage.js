@@ -7,6 +7,7 @@ import BackButton from '../components/BackButton'
 export default function SendingPage(navigation, route) {
   return (
     <View style={styles.container}>
+        <BackButton nav={navigation} />
       <View style={styles.upmidcontainer}>
         <View style={styles.center}>
           <Image source={require('../assets/flying.gif')} style={styles.splashlogobig}/>
