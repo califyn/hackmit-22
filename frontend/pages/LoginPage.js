@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, TouchableHighlight, TouchableOpacity, Text, View, Image } from 'react-native';
+import { TextInput, TouchableOpacity, Text, View, Image, StyleSheet } from 'react-native';
 import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
 import styles from './style'
+import React, {useState} from 'react';
 
 
-export default function LoginPage() {
+export default function LoginPage({navigation}) {
+  const [username, updateUsername] = React.useState(null);
+  const [pwd, updatePassword] = React.useState(null);
+  const [error, updateError] = React.useState(null);
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo.png')} style={styles.splashlogosmall}/>
@@ -12,9 +16,10 @@ export default function LoginPage() {
       <View style={styles.inputView}>
       <TextInput
         style={styles.TextInput}
-        placeholder="Email"
+        placeholder="Username"
+        value={username}
         placeholderTextColor="#003f5c"
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={updateUsername}
       />
       </View>
 
@@ -24,13 +29,37 @@ export default function LoginPage() {
       <TextInput
         style={styles.TextInput}
         placeholder="Password"
+        value={pwd}
         placeholderTextColor="#003f5c"
         secureTextEntry={true}
-        onChangeText={(password) => setPassword(password)}
+        onChangeText={updatePassword}
       />
       </View>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <Text style={StyleSheet.create({color:'red'})}>{error}</Text>
+
+      <TouchableOpacity style={styles.loginBtn} onPress={ () => {
+        fetch("https://pigeon-attempt.herokuapp.com/login", {
+          method: 'POST',
+          body: JSON.stringify({
+            name: username,
+            pwd: pwd
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          }
+        }).then((response) => response.json()).then((json) => {
+          console.log(json);
+          console.log(json['error']);
+          if (json['error']) {
+            updateError(json['error']);
+          } else {
+            navigation.navigate('FeedPage', {
+              username: username
+            });
+          }
+        })}
+      }>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
