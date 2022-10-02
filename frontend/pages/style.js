@@ -133,6 +133,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     padding: 20,
   },
+  downcontainer: {
+    flex: 1,
+    backgroundColor: COLORS.gray,
+    alignItems: 'center',
+    width: "100%",
+    bottom: 0,
+    position: "absolute",
+    padding: 20,
+  },
  tofrombox:
  {
   width: "100%",
@@ -145,6 +154,11 @@ const styles = StyleSheet.create({
   width: "100%",
   alignItems: 'center',
  },
+ rightcontainer: {
+  alignItems: "right",
+  // width: "80%",
+  height: 100
+},
 });
 
 export default styles;
