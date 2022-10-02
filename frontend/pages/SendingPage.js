@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, TouchableHighlight, TouchableOpacity, Text, View
 import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
 import styles from './style'
 
-export default function SendingPage() {
+export default function SendingPage(navigation) {
   return (
     <View style={styles.container}>
       <View style={styles.upmidcontainer}>

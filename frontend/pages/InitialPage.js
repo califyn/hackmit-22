@@ -7,7 +7,9 @@ import styles from './style'
 import CenterMap from '../components/CenterMap'
 import BackButton from '../components/BackButton'
 
-export default function InitialPage({ navigation }) {
+export default function InitialPage({ navigation, route }) {
+  console.log(route.params.username);
+  console.log("ROUTEEEEEE!!");
 
   return (
     <View style={styles.container}>
@@ -18,10 +20,9 @@ export default function InitialPage({ navigation }) {
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
-            <TouchableOpacity onPress={() => {navigation.navigate("RecipientPage"), {
-                  username: username,
-                  locations: json1.Packages
-                }}} style={[styles.bottomField, styles.bottomFieldPurple]}>
+            <TouchableOpacity onPress={() => {navigation.navigate('RecipientPage', {
+                  username: route.params.username
+                })}} style={[styles.bottomField, styles.bottomFieldPurple]}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
       </View>

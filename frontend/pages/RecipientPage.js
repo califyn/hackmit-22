@@ -6,9 +6,10 @@ import styles from './style'
 
 import BackButton from '../components/BackButton'
 
-export default function InitialPage({ navigation }) {
+export default function RecipientPage({ navigation, route }) {
   const [recipient, setRecipient] = React.useState(null);
-
+  console.log(route.params.username);
+  console.log("ROUTEEEEEE!!");
 
   return (
     <View style={styles.container}>
@@ -34,7 +35,12 @@ export default function InitialPage({ navigation }) {
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
-            <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {console.log("api needs to validate recipient her...");}}>
+            <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {
+              console.log("api needs to validate recipient her..."); // Needs to grab the lat/lon and do thing with it
+              navigation.navigate('ContentPage', {
+                username: route.params.username
+              });
+            }}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
       </View>
