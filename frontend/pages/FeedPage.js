@@ -36,7 +36,7 @@ export default function FeedPage({navigation, route}) {
   let mapRef = useRef(null);
   const [location, setLocation] = useState("");
   const [markers, setMarkers] = useState([]);
-  const feed_test = route.params.locations;
+  const [feed_test, setFeedTest] = useState([]);
   useEffect(() => {
         (async () => {
             let { status } = await Location.requestForegroundPermissionsAsync();
@@ -51,26 +51,69 @@ export default function FeedPage({navigation, route}) {
             });
             setLocation(location);
 
+            fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
+              method: 'POST',
+              body: JSON.stringify({
+                user: route.params.username,
+                lat: location.coords.latitude,
+                lon: location.coords.longitude
+              }),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              }
+            }).then((response) => response.json()).then((json) => {
+              console.log(json)
+            });
+
             mapRef.current.animateToRegion({
                 "latitude":location.coords.latitude - 0.005,
                 "longitude": location.coords.longitude,
                 "latitudeDelta":0.05,
                 "longitudeDelta":0.05
             });
-            if (feed_test.length == 0) {
-                setMarkers(markers.concat([{
-                    latitude: location.coords.latitude,
-                    longitude: location.coords.longitude,
-                    title: 'Current Location',
-                }]));
-            } else {
+
+            setInterval(
+              () => {
+                fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    user: route.params.username,
+                    lat: location.coords.latitude,
+                    lon: location.coords.longitude
+                  }),
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  }
+                }).then((response) => response.json()).then((json) => {
+                  console.log(json)
+                });
+                fetch("https://pigeon-attempt.herokuapp.com/packages", {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    name: route.params.username,
+                    pwd: "na"
+                  }),
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  }
+                }).then((response1) => response1.json()).then((json1) => {
+                    setFeedTest(json1.Packages);
+                    setMarkers(feed_test);
+                });
+              },
+            5000);
+            setFeedTest(route.params.locations);
+            // if (feed_test.length == 0) {
+            //     setMarkers(markers.concat([{
+            //         latitude: location.coords.latitude,
+            //         longitude: location.coords.longitude,
+            //         title: 'Current Location',
+            //     }]));
+            // } else {
               setMarkers(feed_test);
-            }
+            // }
         })();
     }, []);
-
-
-
 
   APressable = Animated.createAnimatedComponent(Pressable);
 
@@ -95,7 +138,10 @@ export default function FeedPage({navigation, route}) {
                     description={obj.id}
                     key={obj.id}
                  >
-                    <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>
+                    {obj.seen ? 
+                      <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/> :
+                      <Image source={require('../assets/lock_pin.png')} style={styles.mapMarker}/>
+                    } 
                  </MapView.Marker>
             );
           })}

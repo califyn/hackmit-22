@@ -18,7 +18,6 @@ import SendingPage from './pages/SendingPage';
 import ContentPage from './pages/ContentPage';
 import InitialPage from './pages/InitialPage';
 import RecipientPage from './pages/RecipientPage';
-import FinalPage from './pages/FinalPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -32,17 +31,19 @@ async function setUpTracking () {
         timeInterval: 10000,
     }, (loc) => {
         console.log(loc);
-        fetch("https://pigeon-attempt.herokuapp.com/packages", {
+        fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
           method: 'POST',
           body: JSON.stringify({
-            name: "genericp3rson", // UPDATE THIS
-            pwd: "na"
+            user: "genericp3rson", // UPDATE THIS
+            lat: loc.coords.latitude,
+            lon: loc.coords.longitude
           }),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           }
         }).then((response) => response.json()).then((json) => {
-          console.log(json)});
+          console.log(json)
+        });
         // will want some API requests, compare, see if we can unlock any packages ... 
         // essentially, call /packages over and over again
     });
@@ -76,7 +77,6 @@ function App() {
         <Stack.Screen name="ContentPage" component={ContentPage} />
         <Stack.Screen name="InitialPage" component={InitialPage} />
         <Stack.Screen name="RecipientPage" component={RecipientPage} />
-        <Stack.Screen name="FinalPage" component={FinalPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
