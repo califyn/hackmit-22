@@ -63,6 +63,10 @@ export default function SignupPage({navigation}) {
         <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.loginBtn} onPress={() => { navigation.goBack(); }}>
+        <Text style={styles.loginText}>Back</Text>
+      </TouchableOpacity>
+
       <View style={styles.space} />
       <StatusBar style="auto" />
       </View>
