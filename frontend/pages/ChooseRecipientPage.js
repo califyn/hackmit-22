@@ -7,7 +7,7 @@ import { SafeAreaView, TextInput, Button } from "react-native";
 import React from "react";
 
 
-export default function AddNotePage() {
+export default function ChooseRecipientPage({navigation}) {
     const [msg, updateMsg] = React.useState(null);
     const [text, onChangeNumber] = React.useState(null);
     return (
