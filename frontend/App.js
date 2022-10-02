@@ -16,6 +16,7 @@ import FocusPage from './pages/FocusPage';
 import { useState } from 'react';
 import FeedPage from './pages/FeedPage';
 import SendingPage from './pages/SendingPage';
+import ContentPage from './pages/ContentPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -59,6 +60,7 @@ function App() {
         <Stack.Screen name="FocusPage" component={FocusPage} />
         <Stack.Screen name="ChooseRecipientPage" component={ChooseRecipientPage} />
         <Stack.Screen name="SendingPage" component={SendingPage} />
+        <Stack.Screen name="ContentPage" component={ContentPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
