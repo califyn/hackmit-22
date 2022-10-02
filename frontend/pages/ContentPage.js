@@ -6,7 +6,7 @@ import styles from './style'
 
 import BackButton from '../components/BackButton'
 
-export default function InitialPage({ navigation, route }) {
+export default function ContentPage({ navigation, route }) {
   const [content, setContent] = React.useState(null);
 
   return (
