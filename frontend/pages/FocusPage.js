@@ -16,7 +16,7 @@ export default function FocusPage({route, navigation}) {
         <View style={styles.focusWrap}>
           <View style={styles.geoIndicator}>
             <Image source={require('../assets/gift_pin.png')} style={styles.geoIndicatorPin} />
-            <Text style={[styles.fadeText, styles.geoIndicatorText]}>placeholder location</Text>
+            <Text style={[styles.fadeText, styles.geoIndicatorText]}>{route.params.pkg.lat}, {route.params.pkg.lon}</Text>
           </View>
           <Text style={styles.h3}>@{route.params.pkg.to_user}</Text>
           <Text style={styles.fromFieldFocus}>From <Text style={styles.fadeText}>{route.params.pkg.from_user}</Text></Text>

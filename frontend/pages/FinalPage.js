@@ -10,7 +10,23 @@ export default function FinalPage( { navigation, route } ) {
 
   useEffect(() => {
     setTimeout(
-        () => {navigation.navigate("FeedPage", { username: route.params.username, locations: route.params.locations })}
+        () => {
+            fetch("https://pigeon-attempt.herokuapp.com/packages", {
+              method: 'POST',
+              body: JSON.stringify({
+                name: route.params.username,
+                pwd: "na"
+              }),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              }
+            }).then((response1) => response1.json()).then((json1) => {
+                navigation.navigate('FeedPage', {
+                  username: route.params.username,
+                  locations: json1.Packages
+                });
+            });
+        }
     , 1000);
   });
 
