@@ -8,4 +8,6 @@ Created by MIT students Ali Cy, Shreya Chaudhary, and Serena An for HackMIT 2022
 
 ## Getting Started
 
-CarePigeon's frontend built with a managed workflow on Expo with React Native. To make your own version of CarePigeon's frontend, clone this repository, go to the ``frontend/`` directory, and type ``npm install``. Then type ``npx expo start --no-dev --minify`` and you're good to go!
+CarePigeon's frontend is built with a managed workflow on Expo with React Native. 
+
+To make your own version of CarePigeon, clone this repository, go to the ``frontend/`` directory, and type ``npm install``. Then type ``npx expo start --no-dev --minify`` and you're good to go!
