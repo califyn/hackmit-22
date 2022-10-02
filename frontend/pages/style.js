@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
     width: 375,
     resizeMode: 'contain',
   },
+  splashlogomed: {
+    resizeMode: 'contain',
+    height: 125,
+    width: 200,
+    margin: 'auto',
+  },
   splashlogosmall: {
     resizeMode: 'contain',
     height: 100,
@@ -105,14 +111,14 @@ const styles = StyleSheet.create({
   },
   space: {
     width: 20,
-    height: 20,
+    height: 15,
   },
   inputView: {
     backgroundColor: COLORS.white,
     // borderRadius: 30,
     width: "70%",
     height: 45,
-    marginBottom: 20,
+    marginBottom: 10,
     alignItems: "center",
   },
   TextInput: {
@@ -129,7 +135,7 @@ const styles = StyleSheet.create({
     height:50,
     alignItems:"center",
     justifyContent:"center",
-    marginTop:40,
+    marginTop:25,
     backgroundColor: COLORS.green,
   },
   signupBtn: {
@@ -154,6 +160,13 @@ const styles = StyleSheet.create({
     alignItems: 'left',
     width: "100%",
     top: 50,
+    position: "absolute",
+    padding: 20,
+  },
+  loginupcontainer: {
+    alignItems: 'left',
+    width: "111%",
+    top: 60,
     position: "absolute",
     padding: 20,
   },
