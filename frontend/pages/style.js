@@ -58,13 +58,16 @@ const styles = StyleSheet.create({
     fontSize: '60pt',
     paddingLeft: 5,
     fontWeight: '500',
+    fontFamily: 'VarelaRound',
   },
   h3: {
     fontSize: '20pt',
-    fontWeight: '500'
+    fontWeight: '500',
+    fontFamily: 'VarelaRound',
   },
   text: {
-    fontSize: '16pt'
+    fontSize: '16pt',
+    fontFamily: 'VarelaRound',
   },
   feedScrollFull: {
     flex: 1,
@@ -114,6 +117,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
+    width: '100%',
+    fontFamily: 'VarelaRound'
   },
   loginBtn: {
     width:"60%",
@@ -123,6 +128,9 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     marginTop:40,
     backgroundColor: COLORS.green,
+  },
+  loginText: {
+    fontFamily: 'VarelaRound',
   },
   leftcontainer: {
     alignItems: "left",
@@ -173,6 +181,7 @@ const styles = StyleSheet.create({
  largetext:
  {
   fontSize: 20,
+  fontFamily: 'VarelaRound',
  },
  backButtonWrap: {
   position: 'absolute',
@@ -186,6 +195,7 @@ const styles = StyleSheet.create({
   borderRadius: '50%',
  },
  backButtonText: {
+  fontFamily: 'VarelaRound',
   fontSize: '40pt',
   color: COLORS.lightpurple,
  },

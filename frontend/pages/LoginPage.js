@@ -63,6 +63,9 @@ export default function LoginPage({navigation}) {
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.loginBtn} onPress={() => { navigation.goBack(); }}>
+        <Text style={styles.loginText}>Back</Text>
+      </TouchableOpacity>
       <View style={styles.space} />
       <StatusBar style="auto" />
       </View>
