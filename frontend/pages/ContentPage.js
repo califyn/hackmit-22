@@ -47,7 +47,8 @@ export default function ContentPage({ navigation, route }) {
               }).then((response) => response.json()).then((json) => {
                 navigation.navigate('SendingPage', {
                   res: json, 
-                  username: route.params.username
+                  username: route.params.username,
+                  locations: route.params.locations
                 });
               })
               }}>

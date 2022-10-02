@@ -39,6 +39,7 @@ export default function RecipientPage({ navigation, route }) {
               // check with the API
               navigation.navigate('ContentPage', {
                 username: route.params.username,
+                locations: route.params.locations,
                 lat: route.params.lat,
                 lon: route.params.lon,
                 to_user: recipient
