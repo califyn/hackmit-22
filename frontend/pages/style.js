@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
    zIndex: '100',
   },
   backButton: {
-   backgroundColor: COLORS.black,
+   backgroundColor: 'rgba(0, 0, 0, 0.5)',
    padding: 20,
    borderRadius: '50%',
   },
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   bottomField: {
     width: Dimensions.get('window').width,
-    height: '8%',
+    height: '10%',
     zIndex: '10',
     backgroundColor: 'white',
     justifyContent: 'center',
@@ -251,9 +251,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: 0,
   },
+  bottomFieldBig: {
+    height: '16%',
+    borderTopWidth: 1,
+    borderColor: COLORS.lightpurple,
+  },
   bottomText: {
     fontFamily: 'VarelaRound',
     fontSize: '20pt',
+  },
+  bottomTextAtWrap: {
+    marginBottom: 15,
+  },
+  bottomTextAt: {
+    fontFamily: 'VarelaRound',
+    fontSize: '30pt',
+    color: COLORS.darkpurple,
   },
   confirmButton: {
     width: 40,
@@ -284,6 +297,14 @@ const styles = StyleSheet.create({
     borderColor: COLORS.lightpurple,
     fontFamily: 'VarelaRound',
     color: COLORS.darkpurple,
+  },
+  contentTextInput: {
+    width: '100%',
+    flex: 1,
+    marginTop: '40%',
+    padding: 30,
+    fontSize: '18pt',
+    fontFamily: 'VarelaRound',
   }
 });
 

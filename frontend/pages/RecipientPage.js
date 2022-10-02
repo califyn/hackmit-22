@@ -34,11 +34,9 @@ export default function InitialPage({ navigation }) {
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
-          <View style={[styles.bottomField, styles.bottomFieldPurple]}>
-            <TouchableOpacity onPress={() => {console.log("api needs to validate recipient her...");}}>
+            <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {console.log("api needs to validate recipient her...");}}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
-          </View>
       </View>
     </View>
   );

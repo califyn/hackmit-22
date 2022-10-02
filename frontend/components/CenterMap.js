@@ -25,7 +25,7 @@ export default function CenterMap(props) {
             setLocation(location);
 
             mapRef.current.animateToRegion({
-                "latitude":location.coords.latitude - 0.0125,
+                "latitude":location.coords.latitude - 0.005,
                 "longitude": location.coords.longitude,
                 "latitudeDelta":0.05,
                 "longitudeDelta":0.05
@@ -40,7 +40,8 @@ export default function CenterMap(props) {
         })();
     }, []);
 
-  return (
+  if (props.context != "send") {
+    return (
       <MapView style={styles.map} ref={mapRef}>
           {markers.map((obj) => {
             return (
@@ -51,10 +52,29 @@ export default function CenterMap(props) {
                     description={obj.subtitle}
                     key={obj.title}
                  >
-                    {props.markerSize == "big" ? <Image source={require('../assets/gift_pin_big.png')} style={styles.mapMarkerBig}/> : <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>}
+                    <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>
                  </MapView.Marker>
             );
           })}
       </MapView>
-  );
+    );
+  } else {
+    return (
+      <MapView style={styles.map} ref={mapRef} pitchEnabled={false} rotateEnabled={false} scrollEnabled={false} zoomEnabled={false}>
+          {markers.map((obj) => {
+            return (
+                <MapView.Marker
+                    coordinate={{latitude: obj.latitude,
+                    longitude: obj.longitude}}
+                    title={obj.title}
+                    description={obj.subtitle}
+                    key={obj.title}
+                 >
+                    <Image source={require('../assets/gift_pin_big.png')} style={styles.mapMarkerBig}/> 
+                 </MapView.Marker>
+            );
+          })}
+      </MapView>
+    );
+  }
 }

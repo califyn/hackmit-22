@@ -14,15 +14,13 @@ export default function InitialPage({ navigation }) {
       <StatusBar style="auto" />
       <BackButton nav={navigation} />
       <View style={styles.verticalStack}>
-          <CenterMap markerSize="big" style={{height: "80%"}}/>
+          <CenterMap context="send" style={{height: "80%"}} />
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
-          <View style={[styles.bottomField, styles.bottomFieldPurple]}>
-            <TouchableOpacity onPress={() => {console.log("confirmed!");}}>
+            <TouchableOpacity onPress={() => {console.log("confirmed!");}} style={[styles.bottomField, styles.bottomFieldPurple]}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
-          </View>
       </View>
     </View>
   );

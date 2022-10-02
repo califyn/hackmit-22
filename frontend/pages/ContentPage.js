@@ -1,17 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, TouchableHighlight, TouchableOpacity, Text, View, Image } from 'react-native';
-import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
+import MapView from 'react-native-maps';
+import React, { useEffect, useRef, useState } from 'react';
+import { Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Keyboard } from 'react-native';
 import styles from './style'
 
-export default function ContentPage() {
+import BackButton from '../components/BackButton'
+
+export default function InitialPage({ navigation }) {
+  const [content, setContent] = React.useState(null);
+
   return (
     <View style={styles.container}>
-    {/* <TextInput
-    multiline >
-        style={styles.TextInput}
-        placeholder="Message"
-        placeholderTextColor="#003f5c"
-        </TextInput>  */}
+      <StatusBar style="auto" />
+      <BackButton nav={navigation} />
+      <View style={styles.verticalStack}>
+            <ScrollView keyboardShouldPersistTaps="handled">
+                  <TextInput
+                    style={styles.contentTextInput}
+                    placeholder="Package contents here..."
+                    value={content}
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={setContent}
+                    autoCorrect={false}
+                    enablesReturnKeyAutomatically={true}
+                    multiline={true}
+                  />
+          </ScrollView>
+          <View style={[styles.bottomField, styles.bottomFieldBig]}>
+                <View style={styles.bottomTextAtWrap}><Text style={styles.bottomTextAt}>@afamousperson</Text></View>
+                <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
+          </View>
+            <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {console.log("api needs to validate recipient her...");}}>
+                <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
+            </TouchableOpacity>
+      </View>
     </View>
   );
 }
