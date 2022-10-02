@@ -73,13 +73,9 @@ export default function FeedPage({navigation, route}) {
                 "longitudeDelta":0.05
             });
 
-        })();
-    }, []);
-    
-  useEffect(() => {
             setInterval(
               () => {
-                    /*fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
+                      fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
                       method: 'POST',
                       body: JSON.stringify({
                         user: route.params.username,
@@ -92,7 +88,15 @@ export default function FeedPage({navigation, route}) {
                     }).then((response) => response.json()).then((json) => {
                       console.log(json);
                       console.log("get close packages")
-                    });*/
+                    });
+              },
+            5000);
+        })();
+    }, [markers, feed_test]);
+    
+  useEffect(() => {
+            setInterval(
+              () => {
                     console.log('beginning fetch...');
                     fetch("https://pigeon-attempt.herokuapp.com/packages", {
                       method: 'POST',
