@@ -31,7 +31,18 @@ async function setUpTracking () {
         timeInterval: 10000,
     }, (loc) => {
         console.log(loc);
+        fetch("https://pigeon-attempt.herokuapp.com/packages", {
+          method: 'POST',
+          body: JSON.stringify({
+            name: "genericp3rson", // UPDATE THIS
+            pwd: "na"
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          }
+        }).then((response) => response.json()).then((json) => {console.log(json)});
         // will want some API requests, compare, see if we can unlock any packages ... 
+        // essentially, call /packages over and over again
     });
 }
 setUpTracking();
@@ -53,7 +64,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ContentPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="SplashPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
