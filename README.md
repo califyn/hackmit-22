@@ -1,6 +1,6 @@
 # CarePigeon
 
-![CarePigeon logo](./frontend/assets/logo.png)
+![CarePigeon logo](./frontend/assets/flying.gif)
 
 Write notes for your friends and place them around campus. When a friend walks nearby, they’ll receive your message! 
 
