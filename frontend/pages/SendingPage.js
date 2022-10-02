@@ -3,20 +3,16 @@ import { StyleSheet, TextInput, TouchableHighlight, TouchableOpacity, Text, View
 import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
 import styles from './style'
 
-
-export default function FocusPage() {
+export default function SendingPage() {
   return (
     <View style={styles.container}>
-      <View style={styles.upcontainer}>
+      <View style={styles.upmidcontainer}>
         <View style={styles.center}>
-          <Image source={require('../assets/logo.png')} style={styles.splashlogosmall}/>
+          <Image source={require('../assets/flying.gif')} style={styles.splashlogobig}/>
+          <View style={styles.space} />
+          <Text style={styles.largetext}>Sending...</Text>
         </View>
-        <View style={styles.space} />
-          <Text>From:</Text>
-          <View style={styles.space} />
-          <Text>To:</Text>
-          <View style={styles.space} />
-          <Text>insert message</Text>
+        
       </View>
     </View>
   );

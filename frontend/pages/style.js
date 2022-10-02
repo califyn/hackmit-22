@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   splashlogobig: {
-    height: '30%',
-    width: '67.5%',
+    height: 200,
+    width: 375,
     resizeMode: 'contain',
   },
   splashlogosmall: {
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
   mapMarker: {
     width: 50,
     height: 50,
+  },
+  mapMarkerBig: {
+    width: 160,
+    height: 160,
   },
   feed: {
     position: 'absolute',
@@ -139,6 +143,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: "100%",
     bottom: 0,
+  },
+  upmidcontainer: {
+    flex: 1,
+    backgroundColor: COLORS.lightpurple,
+    alignItems: 'left',
+    width: "100%",
+    top: 200,
     position: "absolute",
     padding: 20,
   },
@@ -159,6 +170,25 @@ const styles = StyleSheet.create({
   // width: "80%",
   height: 100
 },
+ largetext:
+ {
+  fontSize: 20,
+ },
+ backButtonWrap: {
+  position: 'absolute',
+  left: '6%',
+  top: '5%',
+  zIndex: '100',
+ },
+ backButton: {
+  backgroundColor: COLORS.black,
+  padding: 20,
+  borderRadius: '50%',
+ },
+ backButtonText: {
+  fontSize: '40pt',
+  color: COLORS.lightpurple,
+ },
 });
 
 export default styles;
