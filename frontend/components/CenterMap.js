@@ -7,8 +7,8 @@ import * as Location from 'expo-location'
 
 export default function CenterMap(props) {
   let mapRef = useRef(null);
-  const [location, setLocation] = useState("");
-  const [markers, setMarkers] = useState([]);
+  const [location, setLocation] = useState(""); // location
+  const [markers, setMarkers] = useState([]); // add markers
 
   useEffect(() => {
         (async () => {
@@ -17,7 +17,7 @@ export default function CenterMap(props) {
                 return;
             }
 
-            let location = await Location.getCurrentPositionAsync({
+            let location = await Location.getCurrentPositionAsync({ // grab position
                 accuracy: Location.Accuracy.Balanced,
                 enableHighAccuracy: true,
                 timeInterval: 5
