@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, View, Image, Pressable, ScrollView, Animated, TouchableOpacity } from 'react-native';
 import styles from './style'
-
 import { LinearGradient } from 'expo-linear-gradient';
 
 import MapView, { Marker } from 'react-native-maps';
@@ -17,7 +16,9 @@ export default function FeedPage({navigation, route}) {
   const heightA = useRef(new Animated.Value(15)).current;
   const realHeight = heightA.interpolate({inputRange:[0,100],outputRange:['0%','100%']});
   const paddingAnimate = heightA.interpolate({inputRange:[0,100],outputRange:['4%', '11%']});
-
+  const [location, setLocation] = useState(""); // location
+  const [markers, setMarkers] = useState([]); // add markers
+  
   function setFeedAndAnimate(val) {
     if (val == feedUp) {
         return;
@@ -74,6 +75,36 @@ export default function FeedPage({navigation, route}) {
 
   APressable = Animated.createAnimatedComponent(Pressable);
 
+  let mapRef = useRef(null);
+
+  (async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== 'granted') {
+        return;
+    }
+
+    let location = await Location.getCurrentPositionAsync({ // grab position
+        accuracy: Location.Accuracy.Balanced,
+        enableHighAccuracy: true,
+        timeInterval: 5
+    });
+    setLocation(location);
+
+    mapRef.current.animateToRegion({
+        "latitude":location.coords.latitude - 0.005,
+        "longitude": location.coords.longitude,
+        "latitudeDelta":0.05,
+        "longitudeDelta":0.05
+    });
+    if (markers.length == 0) {
+        setMarkers(markers.concat([{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            title: 'Current Location',
+        }]));
+    }
+})();
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -91,7 +122,7 @@ export default function FeedPage({navigation, route}) {
                     coordinate={{latitude: obj.lat,
                     longitude: obj.lon}}
                     title={obj.id}
-                    description={obj.id}
+                    description={obj.text}
                     key={obj.id}
                  >
                     <Image source={require('../assets/gift_pin.png')} style={styles.mapMarker}/>

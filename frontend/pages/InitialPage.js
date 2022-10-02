@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import MapView from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import styles from './style'
