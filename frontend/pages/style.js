@@ -220,14 +220,29 @@ const styles = StyleSheet.create({
    top: '5%',
    zIndex: '100',
   },
+  createButtonWrap: {
+   position: 'absolute',
+   right: '6%',
+   bottom: '5%',
+   zIndex: '100',
+  },
   backButton: {
    backgroundColor: 'rgba(0, 0, 0, 0.5)',
    padding: 20,
    borderRadius: '50%',
   },
+  createButton: {
+   backgroundColor: COLORS.white,
+   padding: 10,
+   borderRadius: '50%',
+  },
   backButtonText: {
    fontSize: '40pt',
    color: COLORS.lightpurple,
+  },
+  createButtonText: {
+   fontSize: '40pt',
+   color: COLORS.black,
   },
   verticalStack: {
     flex: 1,

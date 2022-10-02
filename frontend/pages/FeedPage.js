@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import MapView from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
-import { Text, View, Image, Pressable, ScrollView, Animated } from 'react-native';
+import { Text, View, Image, Pressable, ScrollView, Animated, TouchableOpacity } from 'react-native';
 import styles from './style'
 
 import CenterMap from '../components/CenterMap'
@@ -47,6 +47,11 @@ export default function FeedPage() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+      <View style={styles.createButtonWrap}>
+          <TouchableOpacity onPress={() => {console.log("go to create package")}} style={styles.createButton}>
+           <Image source={require('../assets/plus.png')} style={{width: 30, height: 30, padding: 20}} />
+          </TouchableOpacity>
+      </View>
       <CenterMap />
           <APressable onPressOut={() => {if(!feedUp){setFeedAndAnimate(!feedUp);}}} pressRetentionOffset={{top: 500}} disabled={feedUp} style={[styles.feed, {flex: feedUp ? 1 : null, height: realHeight}]}>
                   <Text style={styles.h1}>Feed</Text>
