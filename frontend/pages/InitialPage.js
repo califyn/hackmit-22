@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import MapView from 'react-native-maps';
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, View, Image, Button, TouchableOpacity } from 'react-native';
 import styles from './style'
@@ -7,7 +6,7 @@ import styles from './style'
 import CenterMap from '../components/CenterMap'
 import BackButton from '../components/BackButton'
 
-export default function InitialPage({ navigation }) {
+export default function InitialPage({ navigation, route }) {
 
   return (
     <View style={styles.container}>
@@ -19,8 +18,7 @@ export default function InitialPage({ navigation }) {
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
             <TouchableOpacity onPress={() => {navigation.navigate("RecipientPage"), {
-                  username: username,
-                  locations: json1.Packages
+                  username: route.params.username
                 }}} style={[styles.bottomField, styles.bottomFieldPurple]}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
             </TouchableOpacity>
