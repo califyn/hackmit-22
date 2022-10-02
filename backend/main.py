@@ -22,6 +22,11 @@ class Package(BaseModel):
     lat: float
     lon: float
 
+class PersonLocation(BaseModel):
+    user: str
+    lat: float
+    lon: float
+
 app = FastAPI()
 
 @app.get("/")
@@ -71,3 +76,8 @@ async def signup(usr: User):
         return {"success": "success"}
     else:
         return {"error": "User exists"}
+
+@app.post("/getClosePackages")
+async def updatemember(usr: PersonLocation): 
+    res = conn.runInstalledQuery("getClosePackages", {"inp_lon": usr.lon, "inp_lat": usr.lat, "username": usr.user})
+    return {"packages": res[0]["Packages"], "locked_packages": res[1]["Locked_Packages"]}
