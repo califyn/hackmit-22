@@ -8,8 +8,7 @@ import BackButton from '../components/BackButton'
 
 export default function RecipientPage({ navigation, route }) {
   const [recipient, setRecipient] = React.useState(null);
-  console.log(route.params.username);
-  console.log("ROUTEEEEEE!!");
+  let msg = ""; // "There&apos;s no one with this username"
 
   return (
     <View style={styles.container}>
@@ -30,15 +29,19 @@ export default function RecipientPage({ navigation, route }) {
                     enablesReturnKeyAutomatically={true}
                   />
             </View>
-            <Text style={[styles.text, {color: "red", marginTop: 20}]}>There&apos;s no one with this username</Text>
+            <Text style={[styles.text, {color: "red", marginTop: 20}]}>{msg}</Text>
           </View>
           <View style={styles.bottomField}>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
             <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {
               console.log("api needs to validate recipient her..."); // Needs to grab the lat/lon and do thing with it
+              // check with the API
               navigation.navigate('ContentPage', {
-                username: route.params.username
+                username: route.params.username,
+                lat: route.params.lat,
+                lon: route.params.lon,
+                to_user: recipient
               });
             }}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>

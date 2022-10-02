@@ -2,8 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, TextInput, TouchableHighlight, TouchableOpacity, Text, View, Image } from 'react-native';
 import useColorScheme from 'react-native/Libraries/Utilities/useColorScheme';
 import styles from './style'
+import BackButton from '../components/BackButton'
 
-export default function SendingPage(navigation) {
+export default function SendingPage(navigation, route) {
   return (
     <View style={styles.container}>
       <View style={styles.upmidcontainer}>
@@ -12,6 +13,12 @@ export default function SendingPage(navigation) {
           <View style={styles.space} />
           <Text style={styles.largetext}>Sending...</Text>
         </View>
+
+        {/* <TouchableOpacity style={styles.signupBtn} onPress={() => { console.log(route); navigation.navigate('FeedPage', {username: route.params.username}); }}>
+            <Text style={styles.loginText}>Home</Text>
+        </TouchableOpacity> */}
+
+
         
       </View>
     </View>

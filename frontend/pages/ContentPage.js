@@ -27,13 +27,28 @@ export default function InitialPage({ navigation, route }) {
                   />
           </ScrollView>
           <View style={[styles.bottomField, styles.bottomFieldBig]}>
-                <View style={styles.bottomTextAtWrap}><Text style={styles.bottomTextAt}>@afamousperson</Text></View>
+                <View style={styles.bottomTextAtWrap}><Text style={styles.bottomTextAt}>{route.params.to_user}</Text></View>
                 <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>my house</Text></Text>
           </View>
             <TouchableOpacity style={[styles.bottomField, styles.bottomFieldPurple]} onPress={() => {
               console.log("api needs to validate recipient her...");
-              navigation.navigate("SendingPage", {
-                username: route.params.username
+              fetch("https://pigeon-attempt.herokuapp.com/addpackage", {
+                method: 'POST',
+                body: JSON.stringify({
+                  from_user: route.params.username,
+                  to_user: route.params.to_user,
+                  message: content,
+                  lat: route.params.lat,
+                  lon: route.params.lon
+                }),
+                headers: {
+                  'Content-type': 'application/json; charset=UTF-8',
+                }
+              }).then((response) => response.json()).then((json) => {
+                navigation.navigate('SendingPage', {
+                  res: json, 
+                  username: route.params.username
+                });
               })
               }}>
                 <Image source={require('../assets/check-circle.png')} style={styles.confirmButton}/>
