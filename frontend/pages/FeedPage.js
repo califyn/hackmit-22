@@ -10,6 +10,7 @@ export default function FeedPage() {
   const [feedUp, setFeedUp] = useState(false);
   const heightA = useRef(new Animated.Value(15)).current;
   const realHeight = heightA.interpolate({inputRange:[0,100],outputRange:['0%','100%']});
+  const paddingAnimate = heightA.interpolate({inputRange:[0,100],outputRange:['4%', '11%']});
 
   function setFeedAndAnimate(val) {
     if (val == feedUp) {
@@ -53,7 +54,7 @@ export default function FeedPage() {
           </TouchableOpacity>
       </View>
       <CenterMap />
-          <APressable onPressOut={() => {if(!feedUp){setFeedAndAnimate(!feedUp);}}} pressRetentionOffset={{top: 500}} disabled={feedUp} style={[styles.feed, {flex: feedUp ? 1 : null, height: realHeight}]}>
+          <APressable onPressOut={() => {if(!feedUp){setFeedAndAnimate(!feedUp);}}} pressRetentionOffset={{top: 500}} disabled={feedUp} style={[styles.feed, {flex: feedUp ? 1 : null, height: realHeight, paddingTop: paddingAnimate}]}>
                   <Text style={styles.h1}>Feed</Text>
                   <ScrollView onScrollEndDrag={(event) => {if(event.nativeEvent.contentOffset.y <= -100) {setFeedAndAnimate(false)}}} style={feedUp ? styles.feedScrollFull : null} showsVerticalScrollIndicator={false}>
                     {feed_test.map((pkg) => {
