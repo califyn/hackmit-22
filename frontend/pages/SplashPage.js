@@ -10,12 +10,13 @@ export default function SplashPage({navigation}) {
     <View style={styles.container}>
       <Image source={require('../assets/logo.png')} style={styles.splashlogobig}/>
       <View style={styles.space} />
+      <Text style={styles.titletext}>CarePigeon</Text>
 
       <TouchableOpacity title="Login" style={styles.loginBtn} onPress={() => navigation.navigate('LoginPage')}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity title="Sign Up" style={styles.loginBtn} onPress={() => navigation.navigate('SignupPage')}>
+      <TouchableOpacity title="Sign Up" style={styles.signupBtn} onPress={() => navigation.navigate('SignupPage')}>
         <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
 

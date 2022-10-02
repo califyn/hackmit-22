@@ -132,6 +132,15 @@ const styles = StyleSheet.create({
     marginTop:40,
     backgroundColor: COLORS.green,
   },
+  signupBtn: {
+    width:"60%",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:25,
+    backgroundColor: "#B2B0B3",
+  },
   loginText: {
     fontFamily: 'VarelaRound',
   },
@@ -181,6 +190,11 @@ const styles = StyleSheet.create({
   {
    fontSize: 20,
    fontFamily: 'VarelaRound',
+  },
+  titletext:
+  {
+    fontSize: 30,
+    fontFamily: 'VarelaRound',
   },
   backButtonWrap: {
    position: 'absolute',

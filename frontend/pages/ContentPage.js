@@ -6,12 +6,12 @@ import styles from './style'
 export default function ContentPage() {
   return (
     <View style={styles.container}>
-    <TextInput
+    {/* <TextInput
     multiline >
         style={styles.TextInput}
         placeholder="Message"
         placeholderTextColor="#003f5c"
-        </TextInput> 
+        </TextInput>  */}
     </View>
   );
 }
