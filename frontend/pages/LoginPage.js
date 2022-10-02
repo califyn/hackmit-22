@@ -54,6 +54,7 @@ export default function LoginPage({navigation}) {
           if (json['error']) {
             updateError(json['error']);
           } else {
+            // fetch("")
             navigation.navigate('FeedPage', {
               username: username
             });

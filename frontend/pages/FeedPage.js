@@ -6,7 +6,7 @@ import styles from './style'
 
 import CenterMap from '../components/CenterMap'
 
-export default function FeedPage() {
+export default function FeedPage({navigation}) {
   const [feedUp, setFeedUp] = useState(false);
   const heightA = useRef(new Animated.Value(15)).current;
   const realHeight = heightA.interpolate({inputRange:[0,100],outputRange:['0%','100%']});
