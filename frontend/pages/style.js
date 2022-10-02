@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: "100%",
     bottom: 0,
+    height: "10%"
   },
   upmidcontainer: {
     flex: 1,
@@ -168,7 +169,6 @@ const styles = StyleSheet.create({
  rightcontainer: {
   alignItems: "right",
   // width: "80%",
-  height: 100
 },
  largetext:
  {
