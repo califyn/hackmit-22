@@ -36,7 +36,7 @@ export default function FeedPage({navigation, route}) {
   let mapRef = useRef(null);
   const [location, setLocation] = useState("");
   const [markers, setMarkers] = useState([]);
-
+  const feed_test = route.params.locations;
   useEffect(() => {
         (async () => {
             let { status } = await Location.requestForegroundPermissionsAsync();
@@ -57,17 +57,19 @@ export default function FeedPage({navigation, route}) {
                 "latitudeDelta":0.05,
                 "longitudeDelta":0.05
             });
-            if (markers.length == 0) {
+            if (feed_test.length == 0) {
                 setMarkers(markers.concat([{
                     latitude: location.coords.latitude,
                     longitude: location.coords.longitude,
                     title: 'Current Location',
                 }]));
+            } else {
+              setMarkers(feed_test);
             }
         })();
     }, []);
 
-  const feed_test = route.params.locations;
+
 
 
   APressable = Animated.createAnimatedComponent(Pressable);
@@ -83,7 +85,7 @@ export default function FeedPage({navigation, route}) {
           </TouchableOpacity>
       </View>
       <MapView style={styles.map} ref={mapRef}>
-          {feed_test.map((obj) => {
+          {markers.map((obj) => {
             return (
                 <MapView.Marker
                     coordinate={{latitude: obj.lat,
