@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   splashlogobig: {
-    height: '30%',
-    width: '67.5%',
+    height: 200,
+    width: 375,
     resizeMode: 'contain',
   },
   splashlogosmall: {
@@ -133,6 +133,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     padding: 20,
   },
+  upmidcontainer: {
+    flex: 1,
+    backgroundColor: COLORS.lightpurple,
+    alignItems: 'left',
+    width: "100%",
+    top: 200,
+    position: "absolute",
+    padding: 20,
+  },
  tofrombox:
  {
   width: "100%",
@@ -145,6 +154,10 @@ const styles = StyleSheet.create({
   width: "100%",
   alignItems: 'center',
  },
+ largetext:
+ {
+  fontSize: 20,
+ }
 });
 
 export default styles;

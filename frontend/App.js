@@ -13,6 +13,7 @@ import SignupPage from './pages/SignupPage';
 import FocusPage from './pages/FocusPage';
 import { useState } from 'react';
 import FeedPage from './pages/FeedPage';
+import SendingPage from './pages/SendingPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -38,13 +39,14 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="SendingPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="SignupPage" component={SignupPage} />
         <Stack.Screen name="FocusPage" component={FocusPage} />
         <Stack.Screen name="ChooseRecipientPage" component={ChooseRecipientPage} />
+        <Stack.Screen name="SendingPage" component={SendingPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
