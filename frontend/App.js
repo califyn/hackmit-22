@@ -17,6 +17,7 @@ import { useState } from 'react';
 import FeedPage from './pages/FeedPage';
 import SendingPage from './pages/SendingPage';
 import ContentPage from './pages/ContentPage';
+import InitialPage from './pages/InitialPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashPage" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="InitialPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashPage" component={SplashPage} />
         <Stack.Screen name="FeedPage" component={FeedPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
@@ -61,6 +62,7 @@ function App() {
         <Stack.Screen name="ChooseRecipientPage" component={ChooseRecipientPage} />
         <Stack.Screen name="SendingPage" component={SendingPage} />
         <Stack.Screen name="ContentPage" component={ContentPage} />
+        <Stack.Screen name="InitialPage" component={InitialPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

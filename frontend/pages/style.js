@@ -65,6 +65,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontFamily: 'VarelaRound',
   },
+  fadeText: {
+    color: COLORS.gray,
+  },
   text: {
     fontSize: '16pt',
     fontFamily: 'VarelaRound',
@@ -162,43 +165,69 @@ const styles = StyleSheet.create({
     position: "absolute",
     padding: 20,
   },
- tofrombox:
- {
-  width: "100%",
-  backgroundColor: COLORS.white,
-  height: 40,
-  padding: 10,
- },
- center:
- {
-  width: "100%",
-  alignItems: 'center',
- },
- rightcontainer: {
-  alignItems: "right",
-  // width: "80%",
-},
- largetext:
- {
-  fontSize: 20,
-  fontFamily: 'VarelaRound',
- },
- backButtonWrap: {
-  position: 'absolute',
-  left: '6%',
-  top: '5%',
-  zIndex: '100',
- },
- backButton: {
-  backgroundColor: COLORS.black,
-  padding: 20,
-  borderRadius: '50%',
- },
- backButtonText: {
-  fontFamily: 'VarelaRound',
-  fontSize: '40pt',
-  color: COLORS.lightpurple,
- },
+  tofrombox:
+  {
+   width: "100%",
+   backgroundColor: COLORS.white,
+   height: 40,
+   padding: 10,
+  },
+  center:
+  {
+   width: "100%",
+   alignItems: 'center',
+  },
+  largetext:
+  {
+   fontSize: 20,
+   fontFamily: 'VarelaRound',
+  },
+  backButtonWrap: {
+   position: 'absolute',
+   left: '6%',
+   top: '5%',
+   zIndex: '100',
+  },
+  backButton: {
+   backgroundColor: COLORS.black,
+   padding: 20,
+   borderRadius: '50%',
+  },
+  backButtonText: {
+   fontSize: '40pt',
+   color: COLORS.lightpurple,
+  },
+  verticalStack: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingBottom: '10%',
+    backgroundColor: 'white',
+  },
+  bottomField: {
+    width: Dimensions.get('window').width,
+    height: '8%',
+    zIndex: '10',
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    paddingLeft: 30,
+    borderBottom: 2,
+    borderColor: 'gray',
+  },
+  bottomFieldPurple: {
+    backgroundColor: COLORS.lightpurple,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 0,
+  },
+  bottomText: {
+    fontFamily: 'VarelaRound',
+    fontSize: '20pt',
+  },
+  confirmButton: {
+    width: 40,
+    height: 40,
+    resizeMode: 'cover',
+  },
 });
 
 export default styles;
