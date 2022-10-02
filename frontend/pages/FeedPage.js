@@ -9,6 +9,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import CenterMap from '../components/CenterMap'
 
 export default function FeedPage({navigation, route}) {
+  console.log(route.params.username);
+  console.log("ROUTEEEEEE!!");
   const [feedUp, setFeedUp] = useState(false);
   const heightA = useRef(new Animated.Value(15)).current;
   const realHeight = heightA.interpolate({inputRange:[0,100],outputRange:['0%','100%']});
