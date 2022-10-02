@@ -18,6 +18,7 @@ import SendingPage from './pages/SendingPage';
 import ContentPage from './pages/ContentPage';
 import InitialPage from './pages/InitialPage';
 import RecipientPage from './pages/RecipientPage';
+import FinalPage from './pages/FinalPage';
 
 async function setUpTracking () {
     console.log('Starting tracking...')
@@ -74,6 +75,7 @@ function App() {
         <Stack.Screen name="ContentPage" component={ContentPage} />
         <Stack.Screen name="InitialPage" component={InitialPage} />
         <Stack.Screen name="RecipientPage" component={RecipientPage} />
+        <Stack.Screen name="FinalPage" component={FinalPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -79,7 +79,8 @@ export default function FeedPage({navigation, route}) {
       <StatusBar style="auto" />
       <View style={styles.createButtonWrap}>
           <TouchableOpacity onPress={() => {navigation.navigate('InitialPage', {
-                  username: route.params.username
+                  username: route.params.username,
+                  locations: route.params.locations
                 })}} style={styles.createButton}>
            <Image source={require('../assets/plus.png')} style={{width: 30, height: 30, padding: 20}} />
           </TouchableOpacity>
@@ -104,7 +105,7 @@ export default function FeedPage({navigation, route}) {
                   <ScrollView onScrollEndDrag={(event) => {if(event.nativeEvent.contentOffset.y <= -100) {setFeedAndAnimate(false)}}} style={feedUp ? styles.feedScrollFull : null} showsVerticalScrollIndicator={false}>
                     {feed_test.map((pkg) => {
                         return ( 
-                            <TouchableOpacity style={styles.pkgPreview} onPress={() => {navigation.navigate('FocusPage', {pkg: pkg})}}>
+                            <TouchableOpacity style={styles.pkgPreview} onPress={() => {navigation.navigate('FocusPage', {pkg: pkg, locations: route.params.locations, username: route.params.username})}}>
                                     <View style={styles.pkgContentPrev}>
                                         <Text style={styles.h3}>@{pkg.from_user}</Text>
                                         <Text style={styles.text}>{pkg.text}</Text>

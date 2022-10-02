@@ -55,6 +55,7 @@ export default function InitialPage({ navigation, route }) {
           </View>
             <TouchableOpacity onPress={() => {navigation.navigate('RecipientPage', {
                   username: route.params.username,
+                  locations: route.params.locations,
                   location_name: loc_name,
                   lat: lat,
                   lon: lon
