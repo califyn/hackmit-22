@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
  largetext:
  {
   fontSize: 20,
- }
+ },
  backButtonWrap: {
   position: 'absolute',
   left: '6%',
