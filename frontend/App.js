@@ -40,7 +40,8 @@ async function setUpTracking () {
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           }
-        }).then((response) => response.json()).then((json) => {console.log(json)});
+        }).then((response) => response.json()).then((json) => {
+          console.log(json)});
         // will want some API requests, compare, see if we can unlock any packages ... 
         // essentially, call /packages over and over again
     });
