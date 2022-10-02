@@ -30,7 +30,6 @@ async function setUpTracking () {
         distanceInterval: 1,
         timeInterval: 10000,
     }, (loc) => {
-        console.log(loc);
         fetch("https://pigeon-attempt.herokuapp.com/getClosePackages", {
           method: 'POST',
           body: JSON.stringify({
