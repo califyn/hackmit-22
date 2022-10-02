@@ -51,7 +51,7 @@ export default function InitialPage({ navigation, route }) {
       <View style={styles.verticalStack}>
           <CenterMap context="send" style={{height: "80%"}} />
           <View style={styles.bottomField}>
-                <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>{loc_name}</Text></Text>
+                <Text style={styles.bottomText}>Location <Text style={styles.fadeText}>{`${lat}, ${lon}`}</Text></Text>
           </View>
             <TouchableOpacity onPress={() => {navigation.navigate('RecipientPage', {
                   username: route.params.username,
