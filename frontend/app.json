@@ -18,7 +18,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "NSLocationWhenInUseUsageDescription": "text",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "text",
+        "NSLocationAlwaysUsageDescription": "text"
+      }
     },
     "android": {
       "adaptiveIcon": {
