@@ -7,11 +7,17 @@ import styles from './style'
 export default function SignupPage() {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.splashlogosmall}/>
-      <View style={styles.space} />
-
-
-      
+      <View style={styles.upcontainer}>
+        <View style={styles.center}>
+          <Image source={require('../assets/logo.png')} style={styles.splashlogosmall}/>
+        </View>
+        <View style={styles.space} />
+          <Text>From:</Text>
+          <View style={styles.space} />
+          <Text>To:</Text>
+          <View style={styles.space} />
+          <Text>insert message</Text>
+      </View>
     </View>
   );
 }
